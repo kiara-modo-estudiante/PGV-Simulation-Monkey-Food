@@ -1,3 +1,4 @@
+import net.salesianos.constants.FoodRepository;
 import net.salesianos.shared.SharedResource;
 import net.salesianos.threads.Monkey;
 import net.salesianos.threads.Tourist;
@@ -9,17 +10,13 @@ public class App {
         Tourist.setSharedResource(monkeyPark);
         Monkey.setSharedResource(monkeyPark);
 
-        String[] food = { "🍌 Banana", "🍎 Apple", "🍊 Orange", "🍇 Grapes", "🍍 Pineapple", "🥭 Mango", "🍑 Peach",
-                "🍓 Strawberry",
-                "🫐  Blueberry", "🍉 Watermelon" };
-
         System.out.println("\n╔════════════════════════════════════════════════╗");
         System.out.println("║      Welcome to the Monkey Park Simulator!     ║");
         System.out.println("╚════════════════════════════════════════════════╝\n" + //
                 "");
 
-        Tourist tourist1 = new Tourist(1, "👩 Alice", 3, food, 3);
-        Tourist tourist2 = new Tourist(2, "👴 Bob", 3, food, 3);
+        Tourist tourist1 = new Tourist(1, "👩 Alice", 3, FoodRepository.FOOD, 3);
+        Tourist tourist2 = new Tourist(2, "👴 Bob", 3, FoodRepository.FOOD, 3);
 
         Monkey monkey1 = new Monkey(1, "🐒 George", 3, 2);
         Monkey monkey2 = new Monkey(2, "🐒 Charlie", 3, 4);
