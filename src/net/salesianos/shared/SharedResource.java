@@ -14,29 +14,33 @@ public class SharedResource {
         this.storage = new ArrayList<>();
     }
 
-    public synchronized void addProduct(String product) throws InterruptedException {
+    public synchronized void addProduct(String product, String touristName) throws InterruptedException {
         while (storage.size() >= capacity) {
             System.out.println(ConsoleColors.ORANGE_BOLD
-                    + "✋ Monkey Park is full of fruits! Wait for monkeys to eat to add more." + ConsoleColors.RESET);
+                    + "(✋) Monkey Park is full of fruits! Wait for monkeys to eat to add more." + ConsoleColors.RESET);
             wait();
         }
 
         storage.add(product);
-        System.out.println(ConsoleColors.GREEN + product + " added to the Monkey Park!" + ConsoleColors.RESET);
+        System.out.println(
+                ConsoleColors.GREEN + touristName + " threw " + product.toLowerCase() + " to the Monkey Park!"
+                        + ConsoleColors.RESET);
 
         notifyAll();
     }
 
-    public synchronized String consumeProduct() throws InterruptedException {
+    public synchronized String consumeProduct(String monkeyConsumer) throws InterruptedException {
 
         while (storage.isEmpty()) {
             System.out.println(
-                    ConsoleColors.ORANGE_BOLD + "✋ Monkey Park is empty! Monkeys have nothing to take." + ConsoleColors.RESET);
+                    ConsoleColors.ORANGE_BOLD + "(✋) Monkey Park is empty! Monkeys have nothing to take."
+                            + ConsoleColors.RESET);
             wait();
         }
 
         String product = storage.remove(0);
-        System.out.println(ConsoleColors.RED + product + " was taken by a monkey! 🐒" + ConsoleColors.RESET);
+        System.out.println(
+                ConsoleColors.RED + monkeyConsumer + " took the " + product.toLowerCase() + "!" + ConsoleColors.RESET);
 
         notifyAll();
 

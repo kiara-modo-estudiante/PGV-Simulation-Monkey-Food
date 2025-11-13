@@ -32,7 +32,7 @@ public class Monkey extends Thread {
         try {
             for (int i = 0; i < totalQuantityToConsume; i++) {
 
-                String consumedProduct = sharedResource.consumeProduct();
+                String consumedProduct = sharedResource.consumeProduct(monkeyName);
                 System.out.println(
                         ConsoleColors.PURPLE + monkeyName + " is eating: " + ConsoleColors.RESET + consumedProduct);
 

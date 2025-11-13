@@ -84,7 +84,7 @@ public class Tourist extends Thread {
                 int timeToProduce = Utils.getRandomTime(maxTimeToProduce);
                 Thread.sleep(timeToProduce * 1000);
 
-                sharedResource.addProduct(producedFood);
+                sharedResource.addProduct(producedFood, touristName);
             }
             System.out.println(ConsoleColors.GREEN_BOLD + touristName + " has finished picking up fruits. 👋"
                     + ConsoleColors.RESET);
