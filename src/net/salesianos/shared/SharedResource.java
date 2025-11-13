@@ -31,7 +31,7 @@ public class SharedResource {
 
         while (storage.isEmpty()) {
             System.out.println(
-                    ConsoleColors.ORANGE_BOLD + "✋ Monkey Park is empty! Monkeys can't eat." + ConsoleColors.RESET);
+                    ConsoleColors.ORANGE_BOLD + "✋ Monkey Park is empty! Monkeys have nothing to take." + ConsoleColors.RESET);
             wait();
         }
 
