@@ -3,6 +3,7 @@ package net.salesianos.threads;
 import java.util.Arrays;
 
 import net.salesianos.shared.SharedResource;
+import net.salesianos.utils.ConsoleColors;
 import net.salesianos.utils.Utils;
 
 public class Tourist extends Thread {
@@ -77,16 +78,18 @@ public class Tourist extends Thread {
             for (int i = 0; i < totalQuantityToProduce; i++) {
                 // Simulate producing food
                 String producedFood = Utils.getRandomItem(food);
-                System.out.println(touristName + " is picking up: " + producedFood);
+                System.out.println(
+                        ConsoleColors.PURPLE + touristName + " is picking up: " + ConsoleColors.RESET + producedFood);
 
                 int timeToProduce = Utils.getRandomTime(maxTimeToProduce);
                 Thread.sleep(timeToProduce * 1000);
 
                 sharedResource.addProduct(producedFood);
             }
-            System.out.println(touristName + " has finished picking up fruits. 👋");
+            System.out.println(ConsoleColors.GREEN_BOLD + touristName + " has finished picking up fruits. 👋"
+                    + ConsoleColors.RESET);
         } catch (InterruptedException e) {
-            System.err.println(touristName + " was interrupted!");
+            System.err.println(ConsoleColors.RED_BOLD + touristName + " was interrupted!" + ConsoleColors.RESET);
         }
     }
 

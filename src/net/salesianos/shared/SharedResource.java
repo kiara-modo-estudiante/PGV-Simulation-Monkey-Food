@@ -3,6 +3,8 @@ package net.salesianos.shared;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.salesianos.utils.ConsoleColors;
+
 public class SharedResource {
     private final List<String> storage;
     private final int capacity;
@@ -14,12 +16,13 @@ public class SharedResource {
 
     public synchronized void addProduct(String product) throws InterruptedException {
         while (storage.size() >= capacity) {
-            System.out.println("✋ Monkey Park is full of fruits! Wait for monkeys to eat to add more.");
+            System.out.println(ConsoleColors.ORANGE_BOLD
+                    + "✋ Monkey Park is full of fruits! Wait for monkeys to eat to add more." + ConsoleColors.RESET);
             wait();
         }
 
         storage.add(product);
-        System.out.println(product + " added to the Monkey Park!");
+        System.out.println( ConsoleColors.CYAN + product + " added to the Monkey Park!" + ConsoleColors.RESET);
 
         notifyAll();
     }
@@ -27,12 +30,13 @@ public class SharedResource {
     public synchronized String consumeProduct() throws InterruptedException {
 
         while (storage.isEmpty()) {
-            System.out.println("✋ Monkey Park is empty! Monkeys can't eat.");
+            System.out.println(
+                    ConsoleColors.ORANGE_BOLD + "✋ Monkey Park is empty! Monkeys can't eat." + ConsoleColors.RESET);
             wait();
         }
 
         String product = storage.remove(0);
-        System.out.println(product + " was eaten by a monkey! 🐒");
+        System.out.println(ConsoleColors.YELLOW + product + " was eaten by a monkey! 🐒" + ConsoleColors.RESET);
 
         notifyAll();
 
