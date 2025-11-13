@@ -2,6 +2,8 @@ package net.salesianos.threads;
 
 import java.util.Arrays;
 
+import net.salesianos.utils.Utils;
+
 public class Tourist extends Thread {
 
     // ----------- Attributes -----------
@@ -70,9 +72,9 @@ public class Tourist extends Thread {
                 String producedFood = food[i % food.length];
                 System.out.println("Tourist " + touristName + " produced: " + producedFood);
 
-                // Simulate time taken to produce food
-                int timeToProduce = (int) (Math.random() * maxTimeToProduce) + 1;
-                Thread.sleep(timeToProduce * 1000); // Convert seconds to milliseconds
+                // Use the utility function to get random time for each product
+                int timeToProduce = Utils.getRandomTime(maxTimeToProduce);
+                Thread.sleep(timeToProduce * 1000);
             }
             System.out.println("Tourist " + touristName + " has finished producing food.");
         } catch (InterruptedException e) {
