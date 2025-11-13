@@ -76,7 +76,7 @@ public class Tourist extends Thread {
         try {
             for (int i = 0; i < totalQuantityToProduce; i++) {
                 // Simulate producing food
-                String producedFood = food[i % food.length];
+                String producedFood = Utils.getRandomItem(food);
                 System.out.println(touristName + " is picking up: " + producedFood);
 
                 int timeToProduce = Utils.getRandomTime(maxTimeToProduce);
