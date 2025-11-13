@@ -3,9 +3,9 @@ import net.salesianos.threads.Tourist;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        SharedResource sharedResource = new SharedResource(5);
+        SharedResource monkeyPark = new SharedResource(5);
 
-        Tourist.setSharedResource(sharedResource);
+        Tourist.setSharedResource(monkeyPark);
 
         String[] food = { "🍌 Banana", "🍎 Apple", "🍊 Orange", "🍇 Grapes", "🍍 Pineapple", "🥭 Mango", "🍑 Peach",
                 "🍓 Strawberry",
