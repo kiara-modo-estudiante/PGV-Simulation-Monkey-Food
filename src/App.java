@@ -11,7 +11,7 @@ public class App {
         Monkey.setSharedResource(monkeyPark);
 
         System.out.println("\n╔════════════════════════════════════════════════╗");
-        System.out.println("║      Welcome to the Monkey Park Simulator!     ║");
+        System.out.println("║  🍌 Welcome to the Monkey Park Simulator! 🙊   ║");
         System.out.println("╚════════════════════════════════════════════════╝\n" + //
                 "");
 
