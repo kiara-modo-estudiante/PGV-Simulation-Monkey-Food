@@ -11,6 +11,7 @@ public class ConsoleColors {
     public static final String BLUE = "\033[0;34m";
     public static final String PURPLE = "\033[0;35m";
     public static final String CYAN = "\033[0;36m";
+    public static final String PINK = "\033[0;35m";
 
     // Bold
     public static final String RED_BOLD = "\033[1;31m";

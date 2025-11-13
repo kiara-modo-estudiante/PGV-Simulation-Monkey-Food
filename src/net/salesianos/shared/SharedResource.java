@@ -22,7 +22,7 @@ public class SharedResource {
         }
 
         storage.add(product);
-        System.out.println( ConsoleColors.CYAN + product + " added to the Monkey Park!" + ConsoleColors.RESET);
+        System.out.println(ConsoleColors.GREEN + product + " added to the Monkey Park!" + ConsoleColors.RESET);
 
         notifyAll();
     }
@@ -36,7 +36,7 @@ public class SharedResource {
         }
 
         String product = storage.remove(0);
-        System.out.println(ConsoleColors.YELLOW + product + " was eaten by a monkey! 🐒" + ConsoleColors.RESET);
+        System.out.println(ConsoleColors.RED + product + " was taken by a monkey! 🐒" + ConsoleColors.RESET);
 
         notifyAll();
 
