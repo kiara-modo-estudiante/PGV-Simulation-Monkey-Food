@@ -1,7 +1,6 @@
 import net.salesianos.shared.SharedResource;
 import net.salesianos.threads.Monkey;
 import net.salesianos.threads.Tourist;
-import net.salesianos.utils.ConsoleColors;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -23,7 +22,7 @@ public class App {
         Tourist tourist2 = new Tourist(2, "👴 Bob", 3, food, 3);
 
         Monkey monkey1 = new Monkey(1, "🐒 George", 3, 2);
-        Monkey monkey2 = new Monkey(2, "🐒 Charlie", 3, 2);
+        Monkey monkey2 = new Monkey(2, "🐒 Charlie", 3, 4);
 
         tourist1.start();
         tourist2.start();
