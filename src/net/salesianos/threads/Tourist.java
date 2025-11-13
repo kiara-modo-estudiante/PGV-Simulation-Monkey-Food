@@ -2,6 +2,7 @@ package net.salesianos.threads;
 
 import java.util.Arrays;
 
+import net.salesianos.shared.SharedResource;
 import net.salesianos.utils.Utils;
 
 public class Tourist extends Thread {
@@ -12,6 +13,7 @@ public class Tourist extends Thread {
     private int totalQuantityToProduce;
     private String[] food;
     private int maxTimeToProduce;
+    private static SharedResource sharedResource;
 
     // ----------- Complete Constructor -----------
     public Tourist(int touristId, String touristName, int totalQuantityToProduce, String[] food, int maxTimeToProduce) {
@@ -20,6 +22,11 @@ public class Tourist extends Thread {
         this.totalQuantityToProduce = totalQuantityToProduce;
         this.food = food;
         this.maxTimeToProduce = maxTimeToProduce;
+    }
+
+    // ----------- Static Method to Set Shared Resource -----------
+    public static void setSharedResource(SharedResource resource) {
+        sharedResource = resource;
     }
 
     // ----------- Getters and Setters -----------
@@ -70,15 +77,16 @@ public class Tourist extends Thread {
             for (int i = 0; i < totalQuantityToProduce; i++) {
                 // Simulate producing food
                 String producedFood = food[i % food.length];
-                System.out.println("Tourist " + touristName + " produced: " + producedFood);
+                System.out.println(touristName + " is picking up: " + producedFood);
 
-                // Use the utility function to get random time for each product
                 int timeToProduce = Utils.getRandomTime(maxTimeToProduce);
                 Thread.sleep(timeToProduce * 1000);
+
+                sharedResource.addProduct(producedFood);
             }
-            System.out.println("Tourist " + touristName + " has finished producing food.");
+            System.out.println(touristName + " has finished picking up fruits. 👋");
         } catch (InterruptedException e) {
-            System.err.println("Tourist " + touristName + " was interrupted.");
+            System.err.println(touristName + " was interrupted!");
         }
     }
 
