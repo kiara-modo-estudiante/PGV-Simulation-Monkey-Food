@@ -34,7 +34,7 @@ public class Monkey extends Thread {
 
                 String consumedProduct = sharedResource.consumeProduct();
                 System.out.println(
-                        ConsoleColors.PINK + monkeyName + " is eating: " + ConsoleColors.RESET + consumedProduct);
+                        ConsoleColors.PURPLE + monkeyName + " is eating: " + ConsoleColors.RESET + consumedProduct);
 
                 int timeToConsume = Utils.getRandomTime(maxTimeToConsume);
                 Thread.sleep(timeToConsume * 1000);
