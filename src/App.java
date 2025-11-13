@@ -15,15 +15,15 @@ public class App {
         System.out.println("╚════════════════════════════════════════════════╝\n" + //
                 "");
 
-        Tourist tourist1 = new Tourist(1, "(👩) Alice", 3, FoodRepository.FOOD, 3);
-        Tourist tourist2 = new Tourist(2, "(👴) Bob", 3, FoodRepository.FOOD, 3);
+        Tourist touristOne = new Tourist(1, "(👩) Alice", 3, FoodRepository.FOOD, 3);
+        Tourist touristTwo = new Tourist(2, "(👴) Bob", 3, FoodRepository.FOOD, 3);
 
-        Monkey monkey1 = new Monkey(1, "(🐒) George", 3, 2);
-        Monkey monkey2 = new Monkey(2, "(🐒) Charlie", 3, 4);
+        Monkey monkeyOne = new Monkey(1, "(🐒) George", 3, 2);
+        Monkey monkeyTwo = new Monkey(2, "(🐒) Charlie", 3, 4);
 
-        tourist1.start();
-        tourist2.start();
-        monkey1.start();
-        monkey2.start();
+        touristOne.start();
+        touristTwo.start();
+        monkeyOne.start();
+        monkeyTwo.start();
     }
 }
