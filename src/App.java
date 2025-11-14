@@ -1,10 +1,10 @@
-import net.salesianos.shared.SharedResource;
+import net.salesianos.shared.MonkeyPark;
 import net.salesianos.threads.Monkey;
 import net.salesianos.threads.Tourist;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        SharedResource monkeyPark = new SharedResource(5);
+        MonkeyPark monkeyPark = new MonkeyPark(5);
 
         System.out.println("\n╔════════════════════════════════════════════════╗");
         System.out.println("║  🍌 Welcome to the Monkey Park Simulator! 🙊   ║");

@@ -5,11 +5,11 @@ import java.util.List;
 
 import net.salesianos.utils.ConsoleColors;
 
-public class SharedResource {
+public class MonkeyPark {
     private final List<String> storage;
     private final int capacity;
 
-    public SharedResource(int capacity) {
+    public MonkeyPark(int capacity) {
         this.capacity = capacity;
         this.storage = new ArrayList<>();
     }

@@ -1,7 +1,7 @@
 package net.salesianos.threads;
 
 import net.salesianos.constants.FoodRepository;
-import net.salesianos.shared.SharedResource;
+import net.salesianos.shared.MonkeyPark;
 import net.salesianos.utils.ConsoleColors;
 import net.salesianos.utils.Utils;
 
@@ -12,11 +12,11 @@ public class Tourist extends Thread {
     private String touristName;
     private int totalQuantityToProduce;
     private int maxTimeToProduce;
-    private SharedResource sharedResource;
+    private MonkeyPark sharedResource;
 
     // ----------- Complete Constructor -----------
     public Tourist(int touristId, String touristName, int totalQuantityToProduce, int maxTimeToProduce,
-            SharedResource sharedResource) {
+            MonkeyPark sharedResource) {
         this.touristId = touristId;
         this.touristName = touristName;
         this.totalQuantityToProduce = totalQuantityToProduce;
@@ -57,11 +57,11 @@ public class Tourist extends Thread {
         this.maxTimeToProduce = maxTimeToProduce;
     }
 
-    public SharedResource getSharedResource() {
+    public MonkeyPark getSharedResource() {
         return sharedResource;
     }
 
-    public void setSharedResource(SharedResource sharedResource) {
+    public void setSharedResource(MonkeyPark sharedResource) {
         this.sharedResource = sharedResource;
     }
 

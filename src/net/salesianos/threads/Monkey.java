@@ -1,6 +1,6 @@
 package net.salesianos.threads;
 
-import net.salesianos.shared.SharedResource;
+import net.salesianos.shared.MonkeyPark;
 import net.salesianos.utils.ConsoleColors;
 import net.salesianos.utils.Utils;
 
@@ -11,11 +11,11 @@ public class Monkey extends Thread {
     private String monkeyName;
     private int totalQuantityToConsume;
     private int maxTimeToConsume;
-    private SharedResource sharedResource;
+    private MonkeyPark sharedResource;
 
     // ----------- Complete Constructor -----------
     public Monkey(int monkeyId, String monkeyName, int totalQuantityToConsume, int maxTimeToConsume,
-            SharedResource sharedResource) {
+            MonkeyPark sharedResource) {
         this.monkeyId = monkeyId;
         this.monkeyName = monkeyName;
         this.totalQuantityToConsume = totalQuantityToConsume;
@@ -55,11 +55,11 @@ public class Monkey extends Thread {
         this.maxTimeToConsume = maxTimeToConsume;
     }
 
-    public SharedResource getSharedResource() {
+    public MonkeyPark getSharedResource() {
         return sharedResource;
     }
 
-    public void setSharedResource(SharedResource sharedResource) {
+    public void setSharedResource(MonkeyPark sharedResource) {
         this.sharedResource = sharedResource;
     }
 
