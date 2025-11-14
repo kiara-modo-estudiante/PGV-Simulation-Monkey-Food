@@ -1,7 +1,6 @@
 package net.salesianos.threads;
 
-import java.util.Arrays;
-
+import net.salesianos.constants.FoodRepository;
 import net.salesianos.shared.SharedResource;
 import net.salesianos.utils.ConsoleColors;
 import net.salesianos.utils.Utils;
@@ -12,22 +11,17 @@ public class Tourist extends Thread {
     private int touristId;
     private String touristName;
     private int totalQuantityToProduce;
-    private String[] food;
     private int maxTimeToProduce;
-    private static SharedResource sharedResource;
+    private SharedResource sharedResource;
 
     // ----------- Complete Constructor -----------
-    public Tourist(int touristId, String touristName, int totalQuantityToProduce, String[] food, int maxTimeToProduce) {
+    public Tourist(int touristId, String touristName, int totalQuantityToProduce, int maxTimeToProduce,
+            SharedResource sharedResource) {
         this.touristId = touristId;
         this.touristName = touristName;
         this.totalQuantityToProduce = totalQuantityToProduce;
-        this.food = food;
         this.maxTimeToProduce = maxTimeToProduce;
-    }
-
-    // ----------- Static Method to Set Shared Resource -----------
-    public static void setSharedResource(SharedResource resource) {
-        sharedResource = resource;
+        this.sharedResource = sharedResource;
     }
 
     // ----------- Getters and Setters -----------
@@ -55,14 +49,6 @@ public class Tourist extends Thread {
         this.totalQuantityToProduce = totalQuantityToProduce;
     }
 
-    public String[] getFood() {
-        return food;
-    }
-
-    public void setFood(String[] food) {
-        this.food = food;
-    }
-
     public int getMaxTimeToProduce() {
         return maxTimeToProduce;
     }
@@ -71,13 +57,21 @@ public class Tourist extends Thread {
         this.maxTimeToProduce = maxTimeToProduce;
     }
 
+    public SharedResource getSharedResource() {
+        return sharedResource;
+    }
+
+    public void setSharedResource(SharedResource sharedResource) {
+        this.sharedResource = sharedResource;
+    }
+
     // ----------- Thread Logic -----------
     @Override
     public void run() {
         try {
             for (int i = 0; i < totalQuantityToProduce; i++) {
                 // Simulate producing food
-                String producedFood = Utils.getRandomItem(food);
+                String producedFood = Utils.getRandomItem(FoodRepository.FOOD);
                 System.out.println(
                         ConsoleColors.PURPLE + touristName + " is picking up: " + ConsoleColors.RESET + producedFood);
 
@@ -98,6 +92,7 @@ public class Tourist extends Thread {
     public String toString() {
         return "Tourist [touristId=" + touristId + ", name=" + touristName + ", totalQuantityToProduce="
                 + totalQuantityToProduce
-                + ", food=" + Arrays.toString(food) + ", maxTimeToProduce=" + maxTimeToProduce + "]";
+                + ", maxTimeToProduce=" + maxTimeToProduce + "]";
     }
+
 }

@@ -11,19 +11,56 @@ public class Monkey extends Thread {
     private String monkeyName;
     private int totalQuantityToConsume;
     private int maxTimeToConsume;
-    private static SharedResource sharedResource;
+    private SharedResource sharedResource;
 
     // ----------- Complete Constructor -----------
-    public Monkey(int monkeyId, String monkeyName, int totalQuantityToConsume, int maxTimeToConsume) {
+    public Monkey(int monkeyId, String monkeyName, int totalQuantityToConsume, int maxTimeToConsume,
+            SharedResource sharedResource) {
         this.monkeyId = monkeyId;
         this.monkeyName = monkeyName;
         this.totalQuantityToConsume = totalQuantityToConsume;
         this.maxTimeToConsume = maxTimeToConsume;
+        this.sharedResource = sharedResource;
     }
 
-    // ----------- Static Method to Set Shared Resource -----------
-    public static void setSharedResource(SharedResource resource) {
-        sharedResource = resource;
+    public int getMonkeyId() {
+        return monkeyId;
+    }
+
+    public void setMonkeyId(int monkeyId) {
+        this.monkeyId = monkeyId;
+    }
+
+    public String getMonkeyName() {
+        return monkeyName;
+    }
+
+    public void setMonkeyName(String monkeyName) {
+        this.monkeyName = monkeyName;
+    }
+
+    public int getTotalQuantityToConsume() {
+        return totalQuantityToConsume;
+    }
+
+    public void setTotalQuantityToConsume(int totalQuantityToConsume) {
+        this.totalQuantityToConsume = totalQuantityToConsume;
+    }
+
+    public int getMaxTimeToConsume() {
+        return maxTimeToConsume;
+    }
+
+    public void setMaxTimeToConsume(int maxTimeToConsume) {
+        this.maxTimeToConsume = maxTimeToConsume;
+    }
+
+    public SharedResource getSharedResource() {
+        return sharedResource;
+    }
+
+    public void setSharedResource(SharedResource sharedResource) {
+        this.sharedResource = sharedResource;
     }
 
     // ----------- Thread Logic -----------
