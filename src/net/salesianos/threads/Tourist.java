@@ -71,7 +71,7 @@ public class Tourist extends Thread {
         try {
             for (int i = 0; i < totalQuantityToProduce; i++) {
                 // Simulate producing food
-                String producedFood = Utils.getRandomItem(FoodRepository.FOOD);
+                String producedFood = FoodRepository.getRandomFruit();
                 System.out.println(
                         ConsoleColors.PURPLE + touristName + " is picking up: " + ConsoleColors.RESET + producedFood);
 
