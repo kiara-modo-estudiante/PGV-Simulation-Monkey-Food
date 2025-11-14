@@ -129,8 +129,8 @@ Esta estructura modular facilita la organización, el mantenimiento y la escalab
 2. **Producción (Turistas)**:
 
    - Cada [turista](./src/net/salesianos/threads/Tourist.java) selecciona una fruta aleatoria de una lista predefinida en [FoodRepository](./src/net/salesianos/constants/FoodRepository.java).
-   - Simula el tiempo de producción de la fruta. La fruta elegida y el tiempo en recogerla son aleatorios, utilizando funciones de [Utils](./src/net/salesianos/utils/Utils.java).
-   - Lanza la fruta al [parque (recurso compartido)](./src/net/salesianos/shared/SharedResource.java).
+   - Simula el tiempo de producción de la fruta. La fruta elegida y el tiempo en recogerla son aleatorios, utilizando funciones de [Utils](./src/net/salesianos/utils/Utils.java) y [FoodRepository](./src/net/salesianos/constants/FoodRepository.java).
+   - Lanza la fruta al [parque (recurso compartido)](./src/net/salesianos/shared/MonkeyPark.java).
    - Si el parque está lleno, el turista espera hasta que haya espacio disponible.
 
 3. **Consumo (Monos)**:
@@ -149,13 +149,13 @@ Esta estructura modular facilita la organización, el mantenimiento y la escalab
 ### Entrada
 
 ```java
-SharedResource monkeyPark = new SharedResource(5);
+MonkeyPark monkeyPark = new MonkeyPark(5);
 
-Tourist touristOne = new Tourist(1, "(👩) Alice", 3, FoodRepository.FOOD, 3);
-Tourist touristTwo = new Tourist(2, "(👴) Bob", 3, FoodRepository.FOOD, 3);
+Tourist touristOne = new Tourist(1, "(👩) Alice", 3, 3, monkeyPark);
+Tourist touristTwo = new Tourist(2, "(👴) Bob", 3, 3, monkeyPark);
 
-Monkey monkeyOne = new Monkey(1, "(🐒) George", 3, 2);
-Monkey monkeyTwo = new Monkey(2, "(🐒) Charlie", 3, 4);
+Monkey monkeyOne = new Monkey(1, "(🐒) George", 3, 2, monkeyPark);
+Monkey monkeyTwo = new Monkey(2, "(🐒) Charlie", 3, 4, monkeyPark);
 
 touristOne.start();
 touristTwo.start();
