@@ -20,6 +20,15 @@ public class App {
         Monkey monkeyThree = new Monkey(3, "(🦍) Kong", 7, 2, monkeyPark);
         Monkey monkeyFour = new Monkey(4, "(🐒) Pepito", 1, 10, monkeyPark);
 
+        touristOne.setPriority(Thread.MAX_PRIORITY);
+        touristTwo.setPriority(Thread.MAX_PRIORITY);
+        touristThree.setPriority(Thread.MAX_PRIORITY);
+
+        monkeyOne.setPriority(Thread.MIN_PRIORITY);
+        monkeyTwo.setPriority(Thread.MIN_PRIORITY);
+        monkeyThree.setPriority(Thread.MIN_PRIORITY);
+        monkeyFour.setPriority(Thread.MIN_PRIORITY);
+
         touristOne.start();
         touristTwo.start();
         touristThree.start();
